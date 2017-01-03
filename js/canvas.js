@@ -48,12 +48,19 @@ function init() {
         //context.clearRect(0, 0, width, height);
 
         ball.y = ball.oy + (Math.sin(angle) * amplitude);
+        // ball.oy += 0.5;
 
         ball.x += waveStep;
         angle += angleIncrement;
 
         if (ball.x > width) {
             ball.x = 0;
+            angle = 0;
+        }
+
+        if (ball.y > height) {
+            ball.oy = 0;
+            ball.y = 0;
             angle = 0;
         }
 
