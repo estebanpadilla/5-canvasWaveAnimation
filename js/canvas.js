@@ -45,13 +45,14 @@ function init() {
     drawUI();
 
     function update() {
-        //context.clearRect(0, 0, width, height);
+        // context.clearRect(0, 0, width, height);
 
         ball.y = ball.oy + (Math.sin(angle) * amplitude);
+        // ball.radius = ball.oradius + (Math.sin(angle) * amplitude);
         // ball.oy += 0.5;
-
         ball.x += waveStep;
         angle += angleIncrement;
+
 
         if (ball.x > width) {
             ball.x = 0;

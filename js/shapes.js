@@ -4,6 +4,7 @@ function Ball(x, y, radius, color, context) {
     this.ox = x;
     this.oy = y;
     this.radius = radius;
+    this.oradius = radius;
     this.color = color;
     this.context = context;
 }
