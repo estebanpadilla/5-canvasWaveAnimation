@@ -1,2 +1,2 @@
 # 5-canvasWaveAnimation
-Understanding sin for animation.
+Understanding the sin fuction for animation.

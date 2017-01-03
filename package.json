@@ -1,0 +1,23 @@
+{
+  "name": "7-canvaswavesanimation",
+  "version": "1.0.0",
+  "description": "Understanding sin for animation.",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/estebanpadilla/7-canvasWavesAnimation.git"
+  },
+  "keywords": [],
+  "author": "Esteban Padilla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/estebanpadilla/7-canvasWavesAnimation/issues"
+  },
+  "homepage": "https://github.com/estebanpadilla/7-canvasWavesAnimation#readme",
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  }
+}
