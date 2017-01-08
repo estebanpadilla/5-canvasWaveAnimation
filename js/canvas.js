@@ -10,13 +10,12 @@ sin 360     PI * 2      = 0
 window.addEventListener('load', init, false);
 
 function init() {
-    console.log('init');
 
-    var canvas = undefined;
-    var context = undefined;
+    var canvas = null;
+    var context = null;
+    var ball = null;
     var width = window.innerWidth;
     var height = window.innerHeight;
-    var ball = undefined;
 
     canvas = createCanvas(0, 0, width, height);
     context = canvas.getContext('2d');
@@ -32,12 +31,15 @@ function init() {
         console.log('Degrees: ' + Math.floor(angle / Math.PI * 180));
     }
     */
+
     //Show image with the sin function
 
     var angle = 0;
     var angleIncrement = 0.02;
     var amplitude = 100;
     var waveStep = 1;
+    var ox = ball.x;
+    var oy = ball.y;
 
     var waveLength = ((Math.PI * 2) / angleIncrement);
     console.log(waveLength);
@@ -45,22 +47,22 @@ function init() {
     drawUI();
 
     function update() {
+
         // context.clearRect(0, 0, width, height);
 
-        ball.y = ball.oy + (Math.sin(angle) * amplitude);
-        // ball.radius = ball.oradius + (Math.sin(angle) * amplitude);
-        // ball.oy += 0.5;
+        ball.y = oy + (Math.sin(angle) * amplitude);
         ball.x += waveStep;
         angle += angleIncrement;
-
 
         if (ball.x > width) {
             ball.x = 0;
             angle = 0;
+            context.clearRect(0, 0, width, height);
+            drawUI();
         }
 
         if (ball.y > height) {
-            ball.oy = 0;
+            oy = 0;
             ball.y = 0;
             angle = 0;
         }
@@ -69,10 +71,11 @@ function init() {
 
         requestAnimationFrame(update);
     }
+
     update();
 
     function drawUI() {
-        context.fillStyle = '#6a6869';
+        context.fillStyle = '#ee3344';
         context.beginPath();
         context.fillRect(0, ((height / 2) - amplitude), waveLength, (amplitude * 2));
         context.fill()
@@ -107,8 +110,6 @@ function createCanvas(x, y, width, height) {
     canvas.style.position = 'absolute';
     canvas.width = width;
     canvas.height = height;
-    canvas.style.left = '' + x + 'px';
-    canvas.style.top = '' + y + 'px';
-    canvas.style.background = '#3a404d';
+    canvas.style.background = '#2b0d3b';
     return canvas;
 }
