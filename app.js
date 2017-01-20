@@ -11,16 +11,15 @@ window.addEventListener('load', init, false);
 
 function init() {
 
-    var canvas = null;
-    var context = null;
-    var ball = null;
-    var width = window.innerWidth;
-    var height = window.innerHeight;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    let canvas = document.createElement('canvas');
+    document.body.appendChild(canvas);
+    canvas.width = width;
+    canvas.height = height;
+    let context = canvas.getContext('2d');
 
-    canvas = createCanvas(0, 0, width, height);
-    context = canvas.getContext('2d');
-
-    ball = new Ball(0, height / 2, 2, '#00adef', context);
+    let ball = new Ball(0, height / 2, 2, '#00adef', context);
     ball.update();
 
     /*
@@ -33,25 +32,24 @@ function init() {
     */
 
     //Show image with the sin function
-
     var angle = 0;
     var angleIncrement = 0.02;
-    var amplitude = 100;
-    var waveStep = 1;
+    var amplitude = 200;
+    let xIncrement = 2;
     var ox = ball.x;
     var oy = ball.y;
 
-    var waveLength = ((Math.PI * 2) / angleIncrement);
+    var waveLength = (((Math.PI * 2) / angleIncrement) * xIncrement);
     console.log(waveLength);
 
     drawUI();
 
     function update() {
 
-        // context.clearRect(0, 0, width, height);
+        context.clearRect(0, 0, width, height);
 
         ball.y = oy + (Math.sin(angle) * amplitude);
-        ball.x += waveStep;
+        ball.x += xIncrement;
         angle += angleIncrement;
 
         if (ball.x > width) {
@@ -102,14 +100,4 @@ function init() {
         context.stroke();
         context.closePath();
     }
-}
-
-function createCanvas(x, y, width, height) {
-    var canvas = document.createElement('canvas');
-    document.body.appendChild(canvas);
-    canvas.style.position = 'absolute';
-    canvas.width = width;
-    canvas.height = height;
-    canvas.style.background = '#2b0d3b';
-    return canvas;
 }

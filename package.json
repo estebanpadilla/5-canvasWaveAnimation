@@ -4,7 +4,7 @@
   "description": "Understanding sin for animation.",
   "main": "index.js",
   "scripts": {
-    "start": "browser-sync start --s --f *.css, *.js, *.html"
+    "start": "browser-sync start --s --f css/style.css, *.js, index.html"
   },
   "repository": {
     "type": "git",
